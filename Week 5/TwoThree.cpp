@@ -29,9 +29,7 @@ class Tree
 {
 	TreeNode *root = NULL;
 	public:
-		/*Tree(){
-			root = NULL;
-		}*/
+		
 		void traverse()
 		{
 			if(root != NULL)
@@ -349,22 +347,37 @@ void Tree::remove(int k)
 int main() 
 { 
     	Tree t; 
-	int n,k;
+	int n,k,ch=0;
 	cout<<"Enter the no. of elements"<<endl;
 	cin>>n;
-	cout<<"Enter the keys"<<endl;
+	cout<<"Enter the elements"<<endl;
 	for(int i=0; i<n; i++)
 	{
-		cin>>k;
-		t.insert(k);
+		int x;
+		cin>>x;
+		t.insert(x);
 	}
-	cout << "Traversal of tree constructed is\n"; 
+	cout << "Traversal of tree constructed is: "; 
     	t.traverse();
-	cout<<"Enter the key to be deleted"<<endl;
-	cin>>k;
-	t.remove(k);
-	cout<<"Traversal after deletion is"<<endl;
+    	
+    	while(ch!=-1){
+    	cout<<"Enter 1 to insert,2 to delete and -1 to exit:";
+    	cin>>ch;
+    	if(ch==1){
+    	  cout<<"Enter the key to be inserted: ";
+	  cin>>k;
+	  t.insert(k);
+	}
+    	if(ch==2){
+          cout<<"Enter the key to be deleted: ";
+	  cin>>k;
+	  t.remove(k);
+	}
+	if(ch!=-1){
+	cout<<"Traversal after the operation is:";
 	t.traverse();
+	}
+	}
 	return 0;
 
 }
